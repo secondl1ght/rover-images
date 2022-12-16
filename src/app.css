@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'IBMPlexMono';
+	src: url('/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+html {
+	@apply bg-primary;
+	font-family: IBMPlexMono, sans-serif;
+}
