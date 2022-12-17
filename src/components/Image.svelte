@@ -47,7 +47,11 @@
 		/>
 	</a>
 
-	<p class="text-secondary font-bold text-lg absolute bottom-[100px] md:bottom-5 right-5">
+	<p
+		class="text-secondary font-bold text-lg absolute {$page.url.pathname === '/'
+			? 'bottom-[100px] md:bottom-5'
+			: 'bottom-5'} right-5"
+	>
 		{parseInt($roverImage.index) + 1}
 	</p>
 
