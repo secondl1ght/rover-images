@@ -9,13 +9,15 @@
 		{ title: 'Random', url: '/random' }
 	];
 
-	const reloadPage = (path) => {
+	const reloadPage = (e, path) => {
 		if ($page.url.pathname === path) {
+			e.preventDefault();
 			location.reload();
 		}
 
 		if (path === '/') {
-			$clearSlideshow = false;
+			e.preventDefault();
+			location.pathname = '/';
 		}
 	};
 </script>
@@ -36,7 +38,7 @@
 	<nav class="space-x-4 mt-2 md:mt-0">
 		{#each nav as link}
 			<a
-				on:click={() => reloadPage(link.url)}
+				on:click={(e) => reloadPage(e, link.url)}
 				href={link.url}
 				class="hover:text-secondary font-bold md:text-lg {$page.url.pathname === link.url
 					? 'border-b-4 border-secondary pb-1'
