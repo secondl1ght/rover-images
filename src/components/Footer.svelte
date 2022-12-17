@@ -24,8 +24,11 @@
 
 	<div class="space-x-4 mt-2 md:mt-0">
 		{#each links as link}
-			<a href={link.url} target="_blank" rel="noreferrer" class="hover:text-secondary font-bold"
-				>{link.title}</a
+			<a
+				href={link.url}
+				target="_blank"
+				rel="noreferrer"
+				class="border-b-2 border-secondary pb-1 hover:text-secondary font-bold">{link.title}</a
 			>
 		{/each}
 	</div>
