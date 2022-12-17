@@ -8,7 +8,7 @@
 
 	$: $roverImageTotal && rover.iterate($roverImageTotal);
 
-	onDestroy(() => $clearSlideshow && $clearSlideshow());
+	onDestroy(() => ($clearSlideshow = true));
 </script>
 
 <PageLayout />

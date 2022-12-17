@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { Robot } from '$comp';
+	import { clearSlideshow } from '$lib/store';
 
 	const nav = [
 		{ title: 'Slideshow', url: '/' },
@@ -11,6 +12,10 @@
 	const reloadPage = (path) => {
 		if ($page.url.pathname === path) {
 			location.reload();
+		}
+
+		if (path === '/') {
+			$clearSlideshow = false;
 		}
 	};
 </script>

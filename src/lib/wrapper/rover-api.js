@@ -54,42 +54,40 @@ export class RoverAPI {
 			});
 	}
 
-	// iterate over all images by index starting from 0 and restarting when the final image is fetched
+	// iterate over all images by index starting from 0
 	iterate(total) {
-		let milliseconds = get(fetchInterval);
+		async function* generateSequence(start, end) {
+			for (let i = start; i <= end; i++) {
+				if (get(clearSlideshow)) {
+					break;
+				}
 
-		let image = 0;
+				await new Promise((resolve) => setTimeout(resolve, get(fetchInterval)));
 
-		const fetchImage = () => {
-			axios
-				.get(apiURL + `/${image}`)
-				.then(function (response) {
-					// handle success
-					if (image === total) {
-						image = 0;
-					} else {
-						image++;
-					}
-					roverImage.set(response.data);
-				})
-				.catch(function (error) {
-					// handle error
-					window.alert('Could not load next image, please try again.');
-					console.log(error);
-				});
-		};
+				yield i;
+			}
+		}
 
-		let fetchImageInterval = setInterval(fetchImage, milliseconds);
-		clearSlideshow.set(() => clearInterval(fetchImageInterval));
+		(async () => {
+			let generator = generateSequence(0, total);
 
-		const resetInterval = () => {
-			milliseconds = get(fetchInterval);
+			for await (let value of generator) {
+				if (get(clearSlideshow)) {
+					return;
+				}
 
-			clearInterval(fetchImageInterval);
-			fetchImageInterval = setInterval(fetchImage, milliseconds);
-			clearSlideshow.set(() => clearInterval(fetchImageInterval));
-		};
-
-		fetchInterval.subscribe(resetInterval);
+				axios
+					.get(apiURL + `/${value}`)
+					.then(function (response) {
+						// handle success
+						roverImage.set(response.data);
+					})
+					.catch(function (error) {
+						// handle error
+						window.alert('Could not load next image, please try again.');
+						console.log(error);
+					});
+			}
+		})();
 	}
 }
