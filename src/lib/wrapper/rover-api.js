@@ -80,6 +80,10 @@ export class RoverAPI {
 					.get(apiURL + `/${value}`)
 					.then(function (response) {
 						// handle success
+						if (get(clearSlideshow)) {
+							return;
+						}
+
 						roverImage.set(response.data);
 					})
 					.catch(function (error) {
