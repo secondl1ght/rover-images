@@ -1,4 +1,4 @@
-# PERSEVERANCE - MARS ROVER Images
+# PERSEVERANCE - MARS ROVER
 
 This website displays images from the FRONT HAZARD AVOIDANCE CAMERA - LEFT. The rover was launched from Earth on 2020-07-30 and landed on Mars on 2021-02-18. You can view the images in a sequential slideshow, the latest image, individual images, or an image at random. It also displays the `sol` and `earth_date` the image was taken.
 
