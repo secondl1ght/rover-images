@@ -23,6 +23,7 @@ This website displays images from the FRONT HAZARD AVOIDANCE CAMERA - LEFT. The 
 ### Additional Scripts
 
 `yarn format` will run prettier
+`yarn test` will run playwright
 
 ## More Info
 
