@@ -39,6 +39,7 @@
 <div class="relative">
 	<a href={`/${$roverImage.index}`}>
 		<img
+			id="rover-image"
 			bind:this={image}
 			src={$roverImage.images.base64}
 			alt="rover image from mars"
