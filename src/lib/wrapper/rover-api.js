@@ -73,7 +73,7 @@ export class RoverAPI {
 
 			for await (let value of generator) {
 				if (get(clearSlideshow)) {
-					return;
+					break;
 				}
 
 				axios
