@@ -7,4 +7,8 @@
 	onMount(() => rover.latest());
 </script>
 
+<svelte:head>
+	<title>PERSEVERANCE - MARS ROVER - Latest</title>
+</svelte:head>
+
 <PageLayout />

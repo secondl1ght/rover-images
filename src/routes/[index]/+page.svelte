@@ -19,4 +19,8 @@
 	$: $roverImageTotal && validateIndex();
 </script>
 
+<svelte:head>
+	<title>PERSEVERANCE - MARS ROVER - Index {data.index}</title>
+</svelte:head>
+
 <PageLayout />

@@ -14,4 +14,8 @@
 	$: $roverImageTotal && rover.index(getRandomIntInclusive(0, $roverImageTotal));
 </script>
 
+<svelte:head>
+	<title>PERSEVERANCE - MARS ROVER - Random</title>
+</svelte:head>
+
 <PageLayout />

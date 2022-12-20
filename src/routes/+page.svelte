@@ -11,4 +11,8 @@
 	onDestroy(() => ($clearSlideshow = true));
 </script>
 
+<svelte:head>
+	<title>PERSEVERANCE - MARS ROVER - Slideshow</title>
+</svelte:head>
+
 <PageLayout />
